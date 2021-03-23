@@ -2,8 +2,8 @@
 ## Matéria: COMPUTAÇÃO PARA DISPOSITIVOS MÓVEIS
 ### Integrantes
 * Jean Silva dos Santos RA:21201367
-* Eric Evideira Paulo RA:
-* Rodrigo RA: 
+* Eric Evideira Paulo RA: 21189733
+* Rodrigo N. Gomes RA: 21202251
 * Gustavo Nascimento Matos RA: 21290220
 * Hugo Matheus RA: 21179068
 
