@@ -1,0 +1,18 @@
+ion-header{
+
+    --ion-background-color:#e92a2a;
+}
+ion-content{
+
+    --ion-background-color:#e44040;
+}
+.column {
+    float: left;
+    width: 11%;
+    padding: 10px;
+  }
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
