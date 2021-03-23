@@ -14,9 +14,9 @@ API pública usada: https://pokeapi.co/
 
 ### Telas: 
 
-1. Home Page [_]
-2. Lista de Pokemons [_]
-3. Detalhes do Pokemon [_]
-4. Inventário [_]
-5. Editar Pokemon do Invetário [_]
-6. Lista de todos os ataques [_]
+1. Home Page [ ]
+2. Lista de Pokemons [ ]
+3. Detalhes do Pokemon [ ]
+4. Inventário [ ]
+5. Editar Pokemon do Invetário [ ]
+6. Lista de todos os ataques [ ]
