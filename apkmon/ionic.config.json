@@ -1,0 +1,7 @@
+{
+  "name": "apkmon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
