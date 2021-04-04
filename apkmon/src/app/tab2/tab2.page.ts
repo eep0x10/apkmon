@@ -17,8 +17,7 @@ export class Tab2Page implements OnInit {
   
   public searching:string;
   private imgSrc: string = "https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png";
-  private type1:string;
-  private type2:string;
+  public types;
   public resultados;
   public getARandomNum():string{
     let randomN:number = Math.floor(Math.random() * (899+-1)+1);
@@ -58,22 +57,9 @@ export class Tab2Page implements OnInit {
     o typescript nao me deixa acessá-lo.
     */
     this.setImg(Pokemon.sprites.front_default);
+    this.types = Pokemon.types;
+    console.log(this.types);
 
-    //PROBLEM(Rodrigo): se alguém conseguir fazer essa merda comentada funcionar,
-    //me avise. Por enquanto vou setar essa caralha na força mesmo.
-    // let types:string[];
-    // if(Pokemon.types.length > 1){
-    //   types.push();
-    // }
-    // console.log(types);
-    // types.push(Pokemon.types[0].type.name);
-    // this.setTypes(types);
-    this.type2 = "";
-    if(Pokemon.types.length>1){
-      this.type2 = Pokemon.types[1].type.name;
-    }
-    this.type1 = Pokemon.types[0].type.name;
-    //console.log(typeof(Pokemon.types[1].type.name));
     console.log(Pokemon.types[0].type.name);
   }
   
@@ -82,13 +68,13 @@ export class Tab2Page implements OnInit {
   public setImg(imgURL:string){
     this.imgSrc = imgURL;
   }
-  public setTypes(types:string[]){
+  // public setTypes(types:string[]){
     
-    if(types.length > 1){
-      this.type2 = types[1];
-    }
-    this.type1 = types[0];
-  }
+  //   if(types.length > 1){
+  //     this.type2 = types[1];
+  //   }
+  //   this.type1 = types[0];
+  // }
   public setResultados(result){
     this.resultados = result;
   }
