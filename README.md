@@ -13,25 +13,25 @@
 API publica usada: https://pokeapi.co/
 
 ## Comandos
-###Instalar PokeAPI: 
+### Instalar PokeAPI: 
 - npm i pokeapi
 
-###Iniciar o servidor:
+### Iniciar o servidor:
 - ionic serve
 
-###Acessar a branch de Dev:
+### Acessar a branch de Dev:
 - git checkout dev
 
-###Salvar alteracoes: 
+### Salvar alteracoes: 
 - git add .
-- git commint -m "versao XXX"
+- git commint -m "version X.X ...."
 - git push origin -u dev
 
-## Telas: 
+## Telas / Checklist: 
 
 1. [X] Home Page
-2. [X] Lista de Pokemons 
-3. [ ] Detalhes do Pokemon 
-4. [ ] Inventario 
-5. [ ] Editar Pokemon do Invetario 
-6. [ ] Lista de ataques 
+2. [X] Lista de Pokemons (API)
+3. [ ] Detalhes do Pokemon / Adicionar no Inventario (API / Armazenamento Interno)
+4. [ ] Inventario (Armazenamento interno)
+5. [ ] Editar Pokemon do Invetario (Armazenamento Interno)
+6. [ ] Lista de ataques (API)
