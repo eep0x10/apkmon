@@ -1,49 +1,59 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-grid>
-      <ion-row> 
-      <ion-col size="4">
-        <span id="circle-big-border">
-          <span id="circle-big"></span>
-        </span>
-      </ion-col>
-      <ion-col size="8" style="display:flex">
-        <div class="circle-small circle-red"></div>
-        <div class="circle-small circle-yellow"></div>
-        <div class="circle-small circle-green"></div>
-      </ion-col>
-      
+      <ion-row>
+        <ion-col size="4">
+          <span id="circle-big-border">
+            <span id="circle-big"></span>
+          </span>
+        </ion-col>
+        <ion-col size="8" style="display:flex">
+          <div class="circle-small circle-red"></div>
+          <div class="circle-small circle-yellow"></div>
+          <div class="circle-small circle-green"></div>
+        </ion-col>
+
       </ion-row>
     </ion-grid>
   </ion-toolbar>
 </ion-header>
+<style>
+.layered-image {
+  position: relative;
+}
+.layered-image img {
+}
+.image-overlay {
+  position: absolute;
+  height: 30%;
+  width: 70%;
+  right: 15%;
+}
+</style>
 
 <ion-content [fullscreen]="true">
   <!--Pokemon View-->
-  <center><img (click)="loadElement(getARandomNum())" src="{{imgSrc}}"></center>
+  <center><img class="image-overlay" src="https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png"></center>
+  <center><img class="image-base" (click)="loadElement(getARandomNum())" src="{{imgSrc}}" height="40%" width="40%"></center>
 
   <!--Pokemon Types-->
   <center id="type-container">
     <div *ngFor="let n of types" class="types {{n.type.name}}">{{n.type.name}}</div>
   </center>
-
+  <center>
+    <ion-button>Details</ion-button>
+  </center>
   <!--Pokemon Search-->
-  <ion-item>
-    <ion-icon slot="start" name="search"></ion-icon>
-    <ion-input type="text" placeholder="Search" [(ngModel)] = "searching"></ion-input>
+  <ion-searchbar type="text" placeholder="Search" [(ngModel)]="searching" animated>
     <ion-button (click)="loadElement(searching)">Go</ion-button>
-  </ion-item>
-  
+  </ion-searchbar>
 </ion-content>
-
 <!--Pokemon List-->
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let resultado of resultados">
-      <ion-label>{{resultado.name}}</ion-label>
+      <ion-label class="ion-text-capitalize">{{resultado.name}}</ion-label>
       <ion-radio slot="end" (click)="loadElement(resultado.name)"></ion-radio>
     </ion-item>
-   
   </ion-list>
-
 </ion-content>

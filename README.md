@@ -12,6 +12,14 @@
 
 API pública usada: https://pokeapi.co/
 
+### Comandos
+Intalar PokeAPI: 
+- npm i pokeapi
+Iniciar o servidor:
+- ionic serve
+Acessar a branch de Dev:
+- git checkout dev
+
 ### Telas: 
 
 1. Home Page [ ]
