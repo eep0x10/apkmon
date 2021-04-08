@@ -8,23 +8,30 @@
 * Hugo Matheus RA: 21179068
 
 # Projeto APKmon
-![logo](https://fontmeme.com/temporary/bbe08d8e2f188ae9b0702d96e5f4065d.png)
+![logo](https://avatars.githubusercontent.com/u/64151210?v=4)
 
-API pública usada: https://pokeapi.co/
+API publica usada: https://pokeapi.co/
 
 ### Comandos
 Intalar PokeAPI: 
 - npm i pokeapi
+
 Iniciar o servidor:
 - ionic serve
+
 Acessar a branch de Dev:
 - git checkout dev
+
+Salvar alteracoes: 
+- git add .
+- git commint -m "versao XXX"
+- git push origin -u dev
 
 ### Telas: 
 
 1. Home Page [ ]
 2. Lista de Pokemons [ ]
 3. Detalhes do Pokemon [ ]
-4. Inventário [ ]
+4. Inventario [ ]
 5. Editar Pokemon do Invetário [ ]
 6. Lista de todos os ataques [ ]
