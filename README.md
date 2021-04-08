@@ -14,18 +14,18 @@ API publica usada: https://pokeapi.co/
 
 ## Comandos
 ###Instalar PokeAPI: 
-	npm i pokeapi
+- npm i pokeapi
 
 ###Iniciar o servidor:
-	ionic serve
+- ionic serve
 
 ###Acessar a branch de Dev:
-	git checkout dev
+- git checkout dev
 
 ###Salvar alteracoes: 
-	git add .
-	git commint -m "versao XXX"
-	git push origin -u dev
+- git add .
+- git commint -m "versao XXX"
+- git push origin -u dev
 
 ## Telas: 
 
