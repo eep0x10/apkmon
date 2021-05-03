@@ -20,58 +20,79 @@
 
 <ion-content [fullscreen]="true">
   <!--Pokemon View-->
-  <center><img src="https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png"></center>
+  <center><img class="image-overlay" src="https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png"></center>
+  <center><img class="image-base" src="{{img}}" height="30%" width="40%"></center>
 
   <!--Pokemon Types-->
-  <center>
-    <ion-button color="warning">Type 1</ion-button>
-    <ion-button color="warning">Type 2</ion-button>
+  <center id="type-container">
+    <div *ngFor="let n of types" class="types {{n.type.name}}">{{n.type.name}}</div>
   </center>
+  <br>
   <center>
     <h1>IV's</h1>
   </center>
-  <ion-list>
-    <ion-item>
-      HP
-      <ion-range min="-200" max="200" color="secondary">
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">31</ion-label>
-      </ion-range>
+  <ion-list class='stat-list'>
+    <ion-item class="stat-item">
+      HP: <span class="stat-value">{{stats[0]}}</span>
+      <ion-button color="success" slot="end" (click)="addPoint(0)">+</ion-button>
+      <ion-button color='danger' slot="end" (click)="dimPoint(0)">-</ion-button>
     </ion-item>
-    <ion-item>
-      Attack
-      <ion-range min="-200" max="200" color="secondary">
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">31</ion-label>
-      </ion-range>
+    <ion-item class="stat-item">
+      Attack: <span class="stat-value">{{stats[1]}}</span>
+      <ion-button color="success" slot="end" (click)="addPoint(1)">+</ion-button>
+      <ion-button color='danger' slot="end" (click)="dimPoint(1)">-</ion-button>
     </ion-item>
-    <ion-item>
-      Defense
-      <ion-range min="-200" max="200" color="secondary">
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">31</ion-label>
-      </ion-range>
+    <ion-item class="stat-item">
+      Defense: <span class="stat-value">{{stats[2]}}</span>
+      <ion-button color="success" slot="end" (click)="addPoint(2)">+</ion-button>
+      <ion-button color='danger' slot="end" (click)="dimPoint(2)">-</ion-button>
     </ion-item>
-    <ion-item>
-      Speed
-      <ion-range min="-200" max="200" color="secondary">
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">31</ion-label>
-      </ion-range>
+    <ion-item class="stat-item">
+      Special Attack: <span class="stat-value">{{stats[3]}}</span>
+      <ion-button color="success" slot="end" (click)="addPoint(3)">+</ion-button>
+      <ion-button color='danger' slot="end" (click)="dimPoint(3)">-</ion-button>
     </ion-item>
-    <ion-item>
-      Sp. Atk.
-      <ion-range min="-200" max="200" color="secondary">
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">31</ion-label>
-      </ion-range>
+    <ion-item class="stat-item">
+      Special Defense: <span class="stat-value">{{stats[4]}}</span>
+      <ion-button color="success" slot="end" (click)="addPoint(4)">+</ion-button>
+      <ion-button color='danger' slot="end" (click)="dimPoint(4)">-</ion-button>
     </ion-item>
-    <ion-item>
-      Sp. Def.
-      <ion-range min="-200" max="200" color="secondary">
-        <ion-label slot="start">0</ion-label>
-        <ion-label slot="end">31</ion-label>
-      </ion-range>
+    <ion-item class="stat-item">
+      Speed: <span class="stat-value">{{stats[5]}}</span>
+      <ion-button color="success" slot='end' (click)="addPoint(5)">+</ion-button>
+      <ion-button color='danger' slot='end' (click)="dimPoint(5)">-</ion-button>
     </ion-item>
+
   </ion-list>
+  <center><h2>Moves</h2></center>
+  <!-- (Rodrigo)[BUG]: por motivos que transcendem a minha compreensão, isso só funciona se eu coloco  outro ion-item embaixo (????????) -->
+ 
+  <ion-item>
+    <ion-label>Move 1</ion-label>
+      <ion-select placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj.move.name}}</ion-select-option>
+      
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Move 2</ion-label>
+      <ion-select placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj.move.name}}</ion-select-option>      
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Move 3</ion-label>
+      <ion-select placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj.move.name}}</ion-select-option>
+      
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Move 4</ion-label>
+      <ion-select placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj.move.name}}</ion-select-option>    
+      
+    </ion-select>
+  </ion-item>    
+  <ion-item></ion-item>    
 </ion-content>

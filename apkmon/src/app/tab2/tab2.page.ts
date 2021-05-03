@@ -68,13 +68,6 @@ export class Tab2Page implements OnInit {
   public setImg(imgURL: string) {
     this.imgSrc = imgURL;
   }
-  // public setTypes(types:string[]){
-
-  //   if(types.length > 1){
-  //     this.type2 = types[1];
-  //   }
-  //   this.type1 = types[0];
-  // }
   public setResultados(result) {
     this.resultados = result;
   }
