@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import PokeAPI from 'pokeapi-typescript';
+
 import { OnInit } from '@angular/core';
+import { PokemonService } from '../services/pokemon.service';
+
 
 @Component({
   selector: 'app-tab5',
@@ -9,9 +11,15 @@ import { OnInit } from '@angular/core';
 })
 export class Tab5Page {
 
-  constructor() {}
+  constructor(private pokeService: PokemonService) {}
  ngOnInit(){
-   this.loadElement(this.getARandomNum());
+   /*PROBLEMA (Rodrigo):
+    eu nao sei oq exatamente ocorre caso o obj Pokemon esteja vazio
+    quando a funçao loadPokemon atirar
+    mas na pior das hipóteses eu *imagino* que nao aconteça nada.
+   */
+    this.loadPokemon();
+    this.refresh();
  }
 
 
@@ -20,30 +28,30 @@ export class Tab5Page {
     let random: string = randomN.toString();
     return random;
   }
-
+  
   public stats:number[] = [0,0,0,0,0,0];
-  public img:string;
-  public moves;
+  public img:string = "";
+  public moves:string[] = [];
+  public selectedMoves:string[] = ["Tackle"];
   public types;
-
-
-  public async searchPokemon(id:string) {
-    const result = await PokeAPI.Pokemon.resolve(id);
-    console.log(result);
-    return result;
-  }
-  public async loadElement(id:string){
-    let Pokemon = await this.searchPokemon(id);
-    this.setMoves(Pokemon.moves);
-    this.setImg(Pokemon.sprites.front_default);
-    this.setTypes(Pokemon.types);
-    //console.log(Pokemon.stats);
-    
+  /*(Rodrigo): seguinte, 19 nao eh 20
+    essa funçao de baixo pega o estado ATUAL do obj Pokemon
+    que ta na pokemon.service, desmonta ele todo pra arrumar
+    as variaveis na página Poke Edit (tab5);
+  */
+  public loadPokemon(){
+    let Pokemon = this.pokeService.getCurrentPokemon();
     for(let i = 0;i<Pokemon.stats.length;i++){
-      this.stats[i] = Pokemon.stats[i].base_stat;
+      this.stats[i] = Pokemon.stats[i];
     }
-
-
+    //console.log(Pokemon.stats);
+    for(let i = 0;i<Pokemon.availableMoves.length;i++){
+      this.moves.push(Pokemon.availableMoves[i]);
+    }
+    console.log(Pokemon);
+    this.setImg(Pokemon.img);
+    this.setTypes(Pokemon.types);
+    
   }
   public addPoint(stat:number){
     if(this.stats[stat] == 150){
@@ -61,15 +69,17 @@ export class Tab5Page {
     this.stats[stat] = temp-1;
   }
 
-  //(Rodrigo): a ideia de ter setters é depois ter getters e mudarar tudo que é
-  //public pra private. Só não fiz isso ainda por preguiça...
-  public setMoves(moves){
-    this.moves = moves;
-  }
   public setImg(url:string){
     this.img = url;
   }
   public setTypes(types){
     this.types = types;
   }
+  //(Rodrigo): isso é uma puta gambiarra que eu fiz pra atualizar o Pokemon
+  //na tab PokeEdit, alguém pelo amor de deus pensa em algo melhor que isso
+
+  public async refresh(){
+    setInterval(() => this.loadPokemon(), 3000);
+  }
+  
 }

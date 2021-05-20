@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
-import PokeAPI from 'pokeapi-typescript';
 import { OnInit } from '@angular/core';
+import { PokemonService } from '../services/pokemon.service';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 
-
-
 })
 
 
-
 export class Tab2Page implements OnInit {
-  //constructor() {}
+  constructor(private pokeService: PokemonService) {}
 
   public searching: string;
   private imgSrc: string = "https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png";
@@ -26,51 +24,24 @@ export class Tab2Page implements OnInit {
   }
   //(Rodrigo): ngOnInit eh o onLoad do JS.
   ngOnInit() {
-    this.loadElement(this.getARandomNum());
-    this.requestList(0, 493); //só importa até a região de sinnoh, o resto é bagunça
+    this.loadPokemon(this.getARandomNum());
+    this.loadPokemonList(0, 493); //só importa até a região de sinnoh, o resto é bagunça
   }
-  public async searchPokemon(id: string) {
-    const result = await PokeAPI.Pokemon.resolve(id);
-    //console.log(result);
-    return result;
-  }
+ 
 
-  public async requestList(firstId: number, lastId: number) {
-    const fetchedList = await PokeAPI.Pokemon.list(lastId, firstId);
-    const { results } = fetchedList;
-    console.log(results);
-    //console.log(fetchedList);
-    console.log(this.resultados);
-    this.setResultados(results);
-    //return results;
+  public async loadPokemonList(firstId: number, lastId: number) {
+    const results = await this.pokeService.requestList(firstId, lastId)
+    this.resultados = results;
   }
 
 
-  public async loadElement(id: string) {
-    let Pokemon = await this.searchPokemon(id);
-    console.log(Pokemon);
-    console.log(Pokemon.sprites['other']);
-    /*PROBLEM(Rodrigo): na minha versao da dex eu acesso a seguinte
-    propriedade do objeto Pokemon (o JSON que a API retorna) para conseguir uma imagem de resolução melhor
-    do Pokemon: Pokemon.sprites.other['official-artwork'].front_default.
-    Se você printar a Pokemon.sprites, o objeto other *existe* mas
-    o typescript nao me deixa acessá-lo.
-    */
-    this.setImg(Pokemon.sprites.front_default);
+  public async loadPokemon(id: string) {
+    let Pokemon = await this.pokeService.getPokemon(id);  
+    this.imgSrc = Pokemon.img;
     this.types = Pokemon.types;
-    console.log(this.types);
 
-    console.log(Pokemon.types[0].type.name);
   }
 
-  //setters
-  //bom é isso aí beleza 
-  public setImg(imgURL: string) {
-    this.imgSrc = imgURL;
-  }
-  public setResultados(result) {
-    this.resultados = result;
-  }
 }
 
 
