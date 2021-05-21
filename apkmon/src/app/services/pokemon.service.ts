@@ -1,6 +1,6 @@
 import PokeAPI from 'pokeapi-typescript';
 import { Injectable } from '@angular/core';
-
+import { Storage } from '@ionic/storage-angular';
 type Pokemon = {
   id:string;
   img:string;
@@ -17,7 +17,7 @@ type Pokemon = {
 })
 export class PokemonService {
 
-  constructor() { }
+  constructor(private storage: Storage) { }
   private requestedPkmnList;
   private Pokemon = {} as Pokemon;
   // a ideia é mandar essa array de Pokemons pra localStorage e *depois* iterar pela lista na hora de enviar pro server
@@ -32,7 +32,7 @@ export class PokemonService {
   public async searchPokemon(id: string) {
     const result = await PokeAPI.Pokemon.resolve(id);
    
-    this.Pokemon.id = result.id.toString();
+    this.Pokemon.id = result.name.toString();
     
     this.Pokemon.img = result.sprites.front_default;
     this.Pokemon.types = result.types;
@@ -48,9 +48,9 @@ export class PokemonService {
     for(let i = 0;i<stats.length;i++){
        this.Pokemon.stats[i] = stats[i].base_stat;
     }
-    console.log(this.Pokemon.stats);
-    console.log(stats);
-    console.log(moves);
+    // console.log(this.Pokemon.stats);
+    // console.log(stats);
+    // console.log(moves);
     //return result;
   }
   
@@ -63,6 +63,14 @@ export class PokemonService {
   }
   public addPokemonToParty(poke:Pokemon){
     this.pokemonParty.push(poke);
+    console.log(this.pokemonParty);
+    this.updateLocalList();
+  }
+  public updateLocalList(){
+    this.storage.set('PkmnParty', this.pokemonParty);
+  }
+  public async getLocalList(){
+    return await this.storage.get('PkmnParty');
   }
   // essa getParty vai ser util na hora de montar a Inventory (tab4)
   public getParty(): Readonly<Pokemon>[]{

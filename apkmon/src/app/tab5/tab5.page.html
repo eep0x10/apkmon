@@ -33,32 +33,32 @@
   </center>
   <ion-list class='stat-list'>
     <ion-item class="stat-item">
-      HP: <span class="stat-value" [(ngModel)] = "stats[0]">{{stats[0]}}</span>
+      HP: <span class="stat-value">{{stats[0]}}</span>
       <ion-button color="success" slot="end" (click)="addPoint(0)">+</ion-button>
       <ion-button color='danger' slot="end" (click)="dimPoint(0)">-</ion-button>
     </ion-item>
     <ion-item class="stat-item">
-      Attack: <span class="stat-value" [(ngModel)] = "stats[1]">{{stats[1]}}</span>
+      Attack: <span class="stat-value">{{stats[1]}}</span>
       <ion-button color="success" slot="end" (click)="addPoint(1)">+</ion-button>
       <ion-button color='danger' slot="end" (click)="dimPoint(1)">-</ion-button>
     </ion-item>
     <ion-item class="stat-item">
-      Defense: <span class="stat-value" [(ngModel)] = "stats[2]">{{stats[2]}}</span>
+      Defense: <span class="stat-value">{{stats[2]}}</span>
       <ion-button color="success" slot="end" (click)="addPoint(2)">+</ion-button>
       <ion-button color='danger' slot="end" (click)="dimPoint(2)">-</ion-button>
     </ion-item>
     <ion-item class="stat-item">
-      Special Attack: <span class="stat-value" [(ngModel)] = "stats[3]">{{stats[3]}}</span>
+      Special Attack: <span class="stat-value">{{stats[3]}}</span>
       <ion-button color="success" slot="end" (click)="addPoint(3)">+</ion-button>
       <ion-button color='danger' slot="end" (click)="dimPoint(3)">-</ion-button>
     </ion-item>
     <ion-item class="stat-item">
-      Special Defense: <span class="stat-value" [(ngModel)] = "stats[4]">{{stats[4]}}</span>
+      Special Defense: <span class="stat-value">{{stats[4]}}</span>
       <ion-button color="success" slot="end" (click)="addPoint(4)">+</ion-button>
       <ion-button color='danger' slot="end" (click)="dimPoint(4)">-</ion-button>
     </ion-item>
     <ion-item class="stat-item">
-      Speed: <span class="stat-value" [(ngModel)] = "stats[5]">{{stats[5]}}</span>
+      Speed: <span class="stat-value">{{stats[5]}}</span>
       <ion-button color="success" slot='end' (click)="addPoint(5)">+</ion-button>
       <ion-button color='danger' slot='end' (click)="dimPoint(5)">-</ion-button>
     </ion-item>
@@ -70,32 +70,33 @@
  <!-- (Rodrigo)[BUG]: quando a pagina muda de pokemon ela atualiza tudo, inclusive a lista de moves disponíveis, MAS o(s) ultimo move(s) selecionado(s) não é(são) limpado(s)... e eu nao faço a minima ideia de como limpar isso  -->
   <ion-item>
     <ion-label>Move 1</ion-label>
-      <ion-select placeholder="Select One">
-      <ion-select-option *ngFor="let moveObj of moves" [(ngModel)]="selectedMoves[0]">{{moveObj}}</ion-select-option>
+      <ion-select ngDefaultControl [(ngModel)]="selectedMoves[0]" placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj}}</ion-select-option>
       
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Move 2</ion-label>
-      <ion-select placeholder="Select One">
-      <ion-select-option *ngFor="let moveObj of moves" [(ngModel)]="selectedMoves[1]">{{moveObj}}</ion-select-option>      
+      <ion-select ngDefaultControl [(ngModel)]="selectedMoves[1]" placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj}}</ion-select-option>      
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Move 3</ion-label>
-      <ion-select placeholder="Select One">
-      <ion-select-option *ngFor="let moveObj of moves" [(ngModel)]="selectedMoves[2]">{{moveObj}}</ion-select-option>
+      <ion-select ngDefaultControl [(ngModel)]="selectedMoves[2]" placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj}}</ion-select-option>
       
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Move 4</ion-label>
-      <ion-select placeholder="Select One">
-      <ion-select-option *ngFor="let moveObj of moves" [(ngModel)]="selectedMoves[3]">{{moveObj}}</ion-select-option>    
+      <ion-select ngDefaultControl [(ngModel)]="selectedMoves[3]" placeholder="Select One">
+      <ion-select-option *ngFor="let moveObj of moves">{{moveObj}}</ion-select-option>    
       
     </ion-select>
   </ion-item>    
-  
-  <ion-button>Save to Party</ion-button> 
+  <center>  
+    <ion-button (click)="addToParty()">Save to Party</ion-button>
+  </center>  
   <ion-item></ion-item>   
 </ion-content>
