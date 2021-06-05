@@ -30,7 +30,17 @@ ion-content {
   box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
     inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
-
+.layered-image {
+	position: relative;
+  }
+  .layered-image img {
+  }
+  .image-overlay {
+	position: absolute;
+	height: 30%;
+	width: 70%;
+	right: 15%;
+  }
 //
 #type-container {
   display: flex;

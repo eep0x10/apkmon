@@ -31,6 +31,7 @@ export class Tab5Page {
   public id:string;
   public stats:number[] = [0,0,0,0,0,0];
   public img:string = "";
+  public desc:string;
   public moves:string[] = [];
   public selectedMoves:string[] = ["Tackle"];
   public types;
@@ -55,7 +56,7 @@ export class Tab5Page {
         
       }
     }
-    
+    this.desc = Pokemon.description;
     this.setImg(Pokemon.img);
     this.setTypes(Pokemon.types);
     this.id = Pokemon.id;
@@ -83,13 +84,13 @@ export class Tab5Page {
   public setTypes(types){
     this.types = types;
   }
-  //(Rodrigo): isso é uma puta gambiarra que eu fiz pra atualizar o Pokemon
-  //na tab PokeEdit, alguém pelo amor de deus pensa em algo melhor que isso
+
   public addToParty(){
     
     let PokemonToAdd = {
       id: this.id,
       img: this.img,
+      description: this.desc,
       types: this.types,
       availableMoves: this.moves,
       stats: this.stats,
@@ -98,6 +99,8 @@ export class Tab5Page {
     console.log(PokemonToAdd);
     this.pokeService.addPokemonToParty(PokemonToAdd);
   }
+    //(Rodrigo): isso é uma puta gambiarra que eu fiz pra atualizar o Pokemon
+  //na tab PokeEdit, alguém pelo amor de deus pensa em algo melhor que isso
   public async refresh(){
     let previousPkmn = "";
     setInterval(() => {

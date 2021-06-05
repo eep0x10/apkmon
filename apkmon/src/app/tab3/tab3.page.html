@@ -20,34 +20,29 @@
 
 <ion-content [fullscreen]="true">
   <!--Pokemon View-->
-  <center><img src="https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png"></center>
-
+  <center><img class="image-overlay" src="https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png"></center>
+  <center><img class="image-base" src="{{Pokemon.img}}" height="30%" width="40%"></center>
   <!--Pokemon Types-->
-  <center>
-    <ion-button color="warning">Type 1</ion-button>
-    <ion-button color="warning">Type 2</ion-button>
+  <center id="type-container">
+    <div *ngFor="let n of Pokemon.types" class="types {{n}}">{{n}}</div>
   </center>
 
   <center>
     <h1>Informations</h1>
     <ion-text color="dark">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum."</p>
+      <p>"{{Pokemon.description}}"</p>
     </ion-text>
     <br>
     <ion-grid id="stats-container">
       <ion-row>
-        <ion-col>HP: 10 </ion-col>
-        <ion-col>Attack: 25 </ion-col>
-        <ion-col>Defense: 90</ion-col>
+        <ion-col>HP: {{Pokemon.stats[0]}} </ion-col>
+        <ion-col>Attack: {{Pokemon.stats[1]}} </ion-col>
+        <ion-col>Defense: {{Pokemon.stats[2]}}</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>Sp. Atk: 32</ion-col>
-        <ion-col>Sp. Def: 44</ion-col>
-        <ion-col>Speed: 8</ion-col>
+        <ion-col>Sp. Atk: {{Pokemon.stats[3]}}</ion-col>
+        <ion-col>Sp. Def: {{Pokemon.stats[4]}}</ion-col>
+        <ion-col>Speed: {{Pokemon.stats[5]}}</ion-col>
       </ion-row>
     </ion-grid>
     <center>
@@ -56,18 +51,18 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-button color="warning">Move 1</ion-button>
+          <ion-button color="warning">{{Pokemon.selectedMoves[0]}}</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button color="warning">Move 2</ion-button>
+          <ion-button color="warning">{{Pokemon.selectedMoves[1]}}</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button color="warning">Move 3</ion-button>
+          <ion-button color="warning">{{Pokemon.selectedMoves[2]}}</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button color="warning">Move 4</ion-button>
+          <ion-button color="warning">{{Pokemon.selectedMoves[3]}}</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -75,6 +70,11 @@
   </center>
   <br>
   <center>
-    <ion-button color="warning">Add inventory</ion-button>
+    <ion-item>
+      <center>
+        <ion-button color="warning">Add inventory</ion-button>
+      </center>  
+    </ion-item>  
   </center>
+  
 </ion-content>

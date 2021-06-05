@@ -11,14 +11,20 @@ export class Tab4Page implements OnInit{
 
   constructor(private pokeService: PokemonService) {}
   ngOnInit() {
-    this.retrieveParty();
-  }
-  public PkmnParty;
-
-  public async retrieveParty(){
-    this.PkmnParty = await this.pokeService.getLocalList();
-    console.log(this.PkmnParty);
     setInterval(() => this.retrieveParty(),5000);
+  }
+  
+  public PkmnParty;
+  
+  public async retrieveParty(){
     
+    //console.log(this.PkmnParty.length);
+    this.PkmnParty = await this.pokeService.getLocalList();
+    
+    console.log(this.PkmnParty);
+    
+  }
+  public updateCurrentPokemon(id:string){
+    console.log(id);
   }
 }

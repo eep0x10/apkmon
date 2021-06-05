@@ -15,7 +15,7 @@ export class Tab2Page implements OnInit {
 
   public searching: string;
   private imgSrc: string = "https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png";
-  public types;
+  public types:string[] = [""];
   public resultados;
   public getARandomNum(): string {
     let randomN: number = Math.floor(Math.random() * (493 + -1) + 1);
@@ -36,10 +36,13 @@ export class Tab2Page implements OnInit {
 
 
   public async loadPokemon(id: string) {
+    this.types = [];
     let Pokemon = await this.pokeService.getPokemon(id);  
     this.imgSrc = Pokemon.img;
-    this.types = Pokemon.types;
-
+    console.log(Pokemon.types);
+    console.log(this.types);
+    for(let i = 0; i < Pokemon.types.length;i++)
+      this.types[i] = Pokemon.types[i];
   }
 
 }
