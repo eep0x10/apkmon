@@ -1,0 +1,18 @@
+
+
+<ion-content padding color = "danger">
+  <ion-item>
+    <ion-label>Ajuda</ion-label>
+    <ion-button (click) = "CloseModal()" size = "small"  slot ="end">close</ion-button>
+  </ion-item>
+  <ion-row>
+    <h1>teste</h1>
+    <ion-toggle class = "forceCenter" [(ngModel)]="topic1"></ion-toggle>
+    <h2 *ngIf="topic1">teste!</h2>
+  </ion-row>
+  <ion-row>
+    <h1>Fale Conosco</h1>
+    <ion-toggle class = "forceCenter" [(ngModel)]="topic2"></ion-toggle>
+    <p *ngIf="topic2"><a href = "http://akpmon.199@hotmail.com">Fale Conosco</a></p>
+  </ion-row>
+</ion-content>

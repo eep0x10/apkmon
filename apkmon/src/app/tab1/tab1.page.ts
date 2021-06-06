@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {ModalController} from '@ionic/angular';
+import {ModalpopupPage} from '../modalpopup/modalpopup.page';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private modalController:ModalController) {}
+  OpenModal(){
+    this.modalController.create({component:ModalpopupPage}).then((modalElement)=>{modalElement.present();})
+  }
 
 }
