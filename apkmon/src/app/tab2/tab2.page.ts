@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -12,6 +13,7 @@ import { PokemonService } from '../services/pokemon.service';
 
 export class Tab2Page implements OnInit {
   constructor(private pokeService: PokemonService) {}
+
 
   public searching: string;
   private imgSrc: string = "https://pngimage.net/wp-content/uploads/2018/06/glass-png-transparent-3.png";
