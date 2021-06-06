@@ -20,63 +20,64 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <br>
-    <img
-      src="https://media.discordapp.net/attachments/810607487404736594/824040337193566228/bbe08d8e2f188ae9b0702d96e5f4065d.png"
-      style="width:80%">
+  <center>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Tab 1</ion-title>
+      </ion-toolbar>
+    </ion-header>
     <br>
-    <h1><b>New Features</b></h1>
-    <br>
-    <h2>Version: 1.5</h2>
-      <ul>
+      <img
+        src="https://media.discordapp.net/attachments/810607487404736594/824040337193566228/bbe08d8e2f188ae9b0702d96e5f4065d.png"
+        style="width:80%">
+      <br>
+      <h1><b>New Features</b></h1>
+      <br>
+      <h2 (click)="hide()">Version: 1.5</h2>
+        <ul  *ngIf="hideMe">
+          <li>
+            Feat: More Infos agora funciona!
+          </li>
+        </ul> 
+      <h2 (click)="hide1()">Version: 1.4</h2>
+      <ul *ngIf="hideMe1">
         <li>
-          Feat: More Infos agora funciona!
+          Feat: Poke Edit agora salva o Pokemon editado!
         </li>
+        <br>
+        <li>Added: Funcionalidades basicas da Inventory</li>
+        <br>
+        <li  >Added: Local storage para salvar temporariamente a party do user</li>
       </ul>
-    <br> 
-    <h2>Version: 1.4</h2>
-    <ul>
-      <li>
-        Feat: Poke Edit agora salva o Pokemon editado!
-      </li>
+      <h2 (click)="hide2()">Version: 1.3.5</h2>
+      <ul *ngIf="hideMe2">
+        
+        <li>Feat: Poke Edit agora é 100% funcional</li>
+        <br>
+        <li>
+          Added: poke.services para transferir funções entre tabs
+        </li>
+        <br>
+        <li >Fixed: Erro na hora de salvar a lista de moves</li>
+      </ul>
+      <h2 (click)="hide3()">Version: 1.3</h2>
+      <ul *ngIf="hideMe3">
+        <li>
+          Added: Funcionalidades da tab Poke Edit
+        </li>
+        <br>
+        <li>Added: Mudanças estéticas na Poke Edit</li>
+        <br>
+        <li>Added: Mudanças estéticas na More Infos (WIP)</li>
+      </ul>
+      <h2 (click)="hide4()">Version: 1.2.1</h2>
+      <ul *ngIf="hideMe4">
+        <li>Fix: arrumado o bug onde, quando um Pokemon havia apenas um tipo, o quadrado do tipo 2 não sumia.</li>
+        <br>
+        <li>Add: mudanças estéticas na toolbar</li>
+        <br>
+        <li>Add: mudanças estéticas na Poke List</li>
+      </ul>
       <br>
-      <li>Added: Funcionalidades basicas da Inventory</li>
-      <br>
-      <li>Added: Local storage para salvar temporariamente a party do user</li>
-    </ul>
-    <h2>Version: 1.3.5</h2>
-    <ul>
-      
-      <li>Feat: Poke Edit agora é 100% funcional</li>
-      <br>
-      <li>
-        Added: poke.services para transferir funções entre tabs
-      </li>
-      <br>
-      <li>Fixed: Erro na hora de salvar a lista de moves</li>
-    </ul>
-    <h2>Version: 1.3</h2>
-    <ul>
-      <li>
-        Added: Funcionalidades da tab Poke Edit
-      </li>
-      <br>
-      <li>Added: Mudanças estéticas na Poke Edit</li>
-      <br>
-      <li>Added: Mudanças estéticas na More Infos (WIP)</li>
-    </ul>
-    <h2>Version: 1.2.1</h2>
-    <ul>
-      <li>Fix: arrumado o bug onde, quando um Pokemon havia apenas um tipo, o quadrado do tipo 2 não sumia.</li>
-      <br>
-      <li>Add: mudanças estéticas na toolbar</li>
-      <br>
-      <li>Add: mudanças estéticas na Poke List</li>
-    </ul>
-    <br>
+  </center>
 </ion-content>
