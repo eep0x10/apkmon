@@ -29,7 +29,12 @@
   </center>
   <br>
   <center>
-    <h1>IV's</h1>
+    <ion-item>
+      <ion-label>Nickname</ion-label>
+      <ion-input placeholder="P0k3foda" [(ngModel)]="uniqueId"></ion-input>
+    </ion-item>
+    <br>
+    <h3>IV's</h3>
   </center>
   <ion-list class='stat-list'>
     <ion-item class="stat-item">
@@ -64,7 +69,7 @@
     </ion-item>
 
   </ion-list>
-  <center><h2>Moves</h2></center>
+  <center><h3>Moves</h3></center>
   <!-- ALT+Z no VSCode automaticamente quebra as linhas mto longas -->
   <!-- (Rodrigo)[BUG]: por motivos que transcendem a minha compreensão, isso só funciona se eu coloco  outro ion-item embaixo (????????) -->
  <!-- (Rodrigo)[BUG]: quando a pagina muda de pokemon ela atualiza tudo, inclusive a lista de moves disponíveis, MAS o(s) ultimo move(s) selecionado(s) não é(são) limpado(s)... e eu nao faço a minima ideia de como limpar isso  -->

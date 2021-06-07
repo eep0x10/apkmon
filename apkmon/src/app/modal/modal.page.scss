@@ -1,0 +1,100 @@
+ion-content {
+    --ion-background-color: #e44040;
+}
+
+#type-container {
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    margin-top: 1rem;
+  }
+  
+  .types {
+    display: flex;
+    width: 70px;
+    height: 30px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 8px 5px 5px #c5004f;
+    text-shadow: 2px 3px 3px rgb(65, 61, 61);
+    color: whitesmoke;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  p{
+    margin-left: 10px;    
+  }
+  .water {
+    background: #6390F0;
+  }
+  
+  .fire {
+    background: #EE8130;
+  }
+  
+  .normal {
+    background: #A8A77A;
+  }
+  
+  .grass {
+    background: #7AC74C;
+  }
+  
+  .ice {
+    background: #96D9D6;
+  }
+  
+  .fighting {
+    background: #C22E28;
+  }
+  
+  .poison {
+    background: #A33EA1;
+  }
+  
+  .flying {
+    background: #A98FF3;
+  }
+  
+  .bug {
+    background: #A6B91A;
+  }
+  
+  .ground {
+    background: #E2BF65;
+  }
+  
+  .electric {
+    background: #F7D02C;
+  }
+  
+  .ghost {
+    background: #735797;
+  }
+  
+  .dragon {
+    background: #6F35FC;
+  }
+  
+  .psychic {
+    background: #F95587;
+  }
+  
+  .rock {
+    background: #B6A136;
+  }
+  
+  .dark {
+    background: #705746;
+  }
+  
+  .steel {
+    background: #B7B7CE;
+  }
+  
+  .fairy {
+    background: #D685AD;
+  }
+  

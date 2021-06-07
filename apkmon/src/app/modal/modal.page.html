@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-capitalize">{{move.id}}</ion-title>
+    <ion-button color="danger" (click)="closeModal()" slot="end">X</ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <center id="type-container">
+    <div class="types {{move.type}}">{{move.type}}</div>
+  </center>
+  <center><h3>Stats</h3></center>
+  <ion-grid id="stats-container">
+    <ion-row>
+      <ion-col>Uses: {{move.uses}} </ion-col>
+      <ion-col>Power: {{move.power}} </ion-col>
+      <ion-col>Accuracy: {{move.acc}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <center><h3>Description</h3></center>
+  <ion-text>
+    <p>
+      {{move.description}}
+    </p>
+  </ion-text>
+</ion-content>

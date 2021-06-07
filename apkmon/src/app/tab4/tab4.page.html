@@ -25,8 +25,9 @@
       <ion-thumbnail slot="start">
         <img src="{{pokemon.img}}">
       </ion-thumbnail>
-      <ion-label class="ion-text-capitalize">{{pokemon.id}} added</ion-label>
-      <ion-radio slot="end" [routerLink] = "['/tabs/tab5']" routerDirection = "forward" (click)="updateCurrentPokemon(pokemon.id)"></ion-radio>
+      <ion-label class="ion-text-capitalize">{{pokemon.uniqueId}} added</ion-label>
+      <!-- <ion-button slot="end" /*[routerLink] = "['/tabs/tab5']" routerDirection = "forward" (click)="updateCurrentPokemon(pokemon.id, pokemon.uniqueId)"><ion-icon name="create"></ion-icon></ion-button> -->
+      <ion-button slot ="end" color="danger" (click)="deletePokemon(pokemon.uniqueId)"><ion-icon name="close-circle-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
 </ion-reorder-group>

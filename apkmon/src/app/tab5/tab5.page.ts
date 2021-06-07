@@ -29,6 +29,7 @@ export class Tab5Page {
     return random;
   }
   public id:string;
+  public uniqueId:string;
   public stats:number[] = [0,0,0,0,0,0];
   public img:string = "";
   public desc:string;
@@ -43,7 +44,7 @@ export class Tab5Page {
   */
   public loadPokemon(){
     let Pokemon = this.pokeService.getCurrentPokemon();
-    let currentPkmn = Pokemon.id;
+    let currentPkmn = Pokemon.uniqueId;
     if(this.prevPkmn != currentPkmn){
       this.moves = [];
       for(let i = 0;i<Pokemon.stats.length;i++){
@@ -55,7 +56,9 @@ export class Tab5Page {
         this.moves[i] = Pokemon.availableMoves[i];
         
       }
+      this.uniqueId = Pokemon.uniqueId;
     }
+    
     this.desc = Pokemon.description;
     this.setImg(Pokemon.img);
     this.setTypes(Pokemon.types);
@@ -86,8 +89,11 @@ export class Tab5Page {
   }
 
   public addToParty(){
-    
+    if(this.uniqueId == this.id){
+      this.uniqueId = this.id + this.getARandomNum();
+    }
     let PokemonToAdd = {
+      uniqueId: this.uniqueId,
       id: this.id,
       img: this.img,
       description: this.desc,
@@ -102,17 +108,17 @@ export class Tab5Page {
     //(Rodrigo): isso é uma puta gambiarra que eu fiz pra atualizar o Pokemon
   //na tab PokeEdit, alguém pelo amor de deus pensa em algo melhor que isso
   public async refresh(){
-    let previousPkmn = "";
+    //let previousPkmn = "";
     setInterval(() => {
-      let Pokemon = this.pokeService.getCurrentPokemon()
-      let currentPkmn = Pokemon.id;
-      if(previousPkmn != currentPkmn){
-        this.selectedMoves = [""];
-      }
-      previousPkmn = currentPkmn;
-      console.log(this.selectedMoves);
+      ///this.pokeService.getCurrentPokemon()
+      // let currentPkmn = Pokemon.id;
+      // if(previousPkmn != currentPkmn){
+      //   this.selectedMoves = [""];
+      // }
+      // previousPkmn = currentPkmn;
+      //console.log(this.selectedMoves);
       this.loadPokemon();
-    }, 3000);
+    }, 5000);
     
   }
   

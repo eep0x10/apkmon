@@ -31,11 +31,11 @@
     <div *ngFor="let n of types" class="types {{n}}">{{n}}</div>
   </center>
   <center>
-    <ion-button>Details</ion-button>
+    <ion-button [routerLink] = "['/tabs/tab3']" routerDirection = "forward">Details</ion-button>
   </center>
   <!--Pokemon Search-->
   <ion-searchbar type="text" placeholder="Search" [(ngModel)]="searching" animated>
-    <ion-button (click)="loadPokemon(searching)">Go</ion-button>
+    <ion-button (click)="loadPokemon(searching)"[routerLink] = "['/tabs/tab5']" routerDirection = "forward"  >Go</ion-button>
   </ion-searchbar>
 </ion-content>
 <!--Pokemon List-->

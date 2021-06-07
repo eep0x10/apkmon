@@ -20,73 +20,11 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
+    <ion-item *ngFor="let move of listOfMoves">
+      <ion-label class="ion-text-capitalize">{{move.name}}</ion-label>
+      
+      <ion-button color="warning" (click)="openModal(move.name)">Details</ion-button>
     </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Move name</ion-label>
-      <ion-button color="warning">Type</ion-button>
-    </ion-item>
+    
     </ion-list>
 </ion-content>

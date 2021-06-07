@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import {OnInit} from '@angular/core';
 type Pokemon = {
+  uniqueId:string;
   id:string;
   img:string;
   description:string;
@@ -27,7 +28,7 @@ export class PokemonService{
   
   // a ideia é mandar essa array de Pokemons pra localStorage e *depois* iterar pela lista na hora de enviar pro server
   private pokemonParty:Pokemon[] = [
-    {id:"Pikachu",img:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",description:"Template Pokémon",types:["electric"],stats:[35,55,40,50,50,90],availableMoves:["Thunder Shock","U-Turn"],selectedMoves:["Tackle","Thunder Shock","Quick Attack", "Earthquake"]}
+    {uniqueId:"P1k4",id:"Pikachu",img:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",description:"Template Pokémon",types:["electric"],stats:[35,55,40,50,50,90],availableMoves:["Thunder Shock","U-Turn"],selectedMoves:["Tackle","Thunder Shock","Quick Attack", "Earthquake"]}
   ];
   // (Rodrigo): essa função desmonta o obj Pokemon que a API retorna e popula as propriedades do obj Pokemon presente nesse arquivo.
   /*
@@ -47,6 +48,7 @@ export class PokemonService{
     const {moves}  = {...result};
     
     const {stats}  = {...result};
+    this.Pokemon.uniqueId = result.name;
     this.Pokemon.availableMoves = [];
     this.Pokemon.stats = [];
     this.Pokemon.types = [];
@@ -69,7 +71,16 @@ export class PokemonService{
     // console.log(moves);
     //return result;
   }
-  
+  public deleteFromParty(uniqueId:string){
+    for(let i = 0;i<this.pokemonParty.length;i++){
+      if(uniqueId == this.pokemonParty[i].uniqueId){
+        const teste = this.pokemonParty[i];
+        console.log(teste);
+        this.pokemonParty.splice(i,1);
+      }
+    }
+    this.updateLocalList();
+  }
 
   public async requestList(firstId: number, lastId: number) {
     const fetchedList = await PokeAPI.Pokemon.list(lastId, firstId);
@@ -78,8 +89,15 @@ export class PokemonService{
     return results;
   }
   public addPokemonToParty(poke:Pokemon){
+    for(let i = 0; i < this.pokemonParty.length;i++){
+      if(poke.uniqueId == this.pokemonParty[i].uniqueId){
+        this.pokemonParty[i] = {...poke}
+        
+      }
+      console.log(poke);
+    }
     this.pokemonParty.push(poke);
-    console.log(this.pokemonParty);
+    //console.log(this.pokemonParty);
     this.updateLocalList();
   }
   public updateLocalList(){
@@ -96,8 +114,21 @@ export class PokemonService{
     this.requestedPkmnList = result;
   }
   // existe uma diferença importante aqui: getPokemon faz uma request pra API, getCurrentPokemon não faz nenhuma request e puxa o objeto Pokemon do jeito que ele está aqui nesse arquivo. 
-  public async getPokemon(id: string){
-    await this.searchPokemon(id);
+  //uniqueId é um parametro opcional que só vai ser usado lá na tab inventory, pra ver se ja existe esse poke na party
+  public async getPokemon(id: string, uniqueId?:string){
+  
+    let naosei = true;
+    for(let i = 0;i<this.pokemonParty.length;i++){
+      console.log(uniqueId);
+      if(uniqueId == this.pokemonParty[i].uniqueId){
+        this.Pokemon = {...this.pokemonParty[i]}; 
+        naosei=false;
+      }
+    }
+    if(naosei){
+      await this.searchPokemon(id);
+    }
+    
     return this.Pokemon;
   }
   public getCurrentPokemon(){
