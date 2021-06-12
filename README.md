@@ -31,7 +31,7 @@ API publica usada: https://pokeapi.co/
 
 1. [X] Home Page
 2. [X] Lista de Pokemons (API)
-3. [ ] Detalhes do Pokemon / Adicionar no Inventario (API / Armazenamento Interno)
-4. [ ] Inventario (Armazenamento interno)
-5. [ ] Editar Pokemon do Invetario (Armazenamento Interno)
-6. [ ] Lista de ataques (API)
+3. [X] Detalhes do Pokemon / Adicionar no Inventario (API / Armazenamento Interno)
+4. [X] Inventario (Armazenamento interno)
+5. [X] Editar Pokemon do Invetario (Armazenamento Interno)
+6. [X] Lista de ataques (API)
