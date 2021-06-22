@@ -11,7 +11,6 @@
         <div class="circle-small circle-red"></div>
         <div class="circle-small circle-yellow"></div>
         <div class="circle-small circle-green"></div>
-        
       </ion-col>
       
       </ion-row>
@@ -27,9 +26,7 @@
   <center id="type-container">
     <div *ngFor="let n of Pokemon.types" class="types {{n}}">{{n}}</div>
   </center>
-  <center>
-  <ion-button (click) = "OpenModal()" size = "small">Evolutions</ion-button>
-</center>
+
   <center>
     <h1>Informations</h1>
     <ion-text color="dark">

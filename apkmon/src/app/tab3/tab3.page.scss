@@ -33,7 +33,8 @@ ion-content {
 .layered-image {
 	position: relative;
   }
-
+  .layered-image img {
+  }
   .image-overlay {
 	position: absolute;
 	height: 30%;
