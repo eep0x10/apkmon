@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalController} from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-modalpopup',
@@ -10,9 +11,23 @@ export class ModalpopupPage implements OnInit {
   public hideMe:boolean = false;
   public hideMe1:boolean = false;
   public hideMe2:boolean = false;
+ 
+  public usuarioNome:string;
+  public usuarioSobrenome:string;
+  public usuarioEmail:string;
+  public usuarioExperiencia:string;
 
-  constructor(private modalController:ModalController) { }
-
+  constructor(private modalController:ModalController, private storage: Storage) { }
+  enviarForm(){
+    let usuario = {
+      nome : this.usuarioNome,
+      sobrenome : this.usuarioSobrenome,
+      email : this.usuarioEmail,
+      experiencia : this.usuarioExperiencia
+    };
+    this.storage.set('usuario',usuario);
+    console.log(this.usuarioNome);
+  }
   ngOnInit() {
   }
   CloseModal()
